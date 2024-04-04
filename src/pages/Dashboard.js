@@ -1,10 +1,8 @@
 import React, { useEffect } from "react";
-import CanvasJSReact from "@canvasjs/react-charts";
 import styles from "../styles/dashboard.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getproductsData } from "../store/products-actions";
-
-const CanvasJSChart = CanvasJSReact.CanvasJSChart;
+import { CanvasJSChart } from "canvasjs-react-charts";
 
 function calculateTotalStockByCategory(products) {
   const categories = {};
@@ -131,10 +129,10 @@ export function Dashboard() {
       {!isLoading && (
         <>
           <div className={styles.chart_container}>
-            <CanvasJSChart options={stockAvaliabilityBycategory} />
+            <CanvasJSChart options={minmaxPriceByCategory} />
           </div>
           <div className={styles.chart_container}>
-            <CanvasJSChart options={minmaxPriceByCategory} />
+            <CanvasJSChart options={stockAvaliabilityBycategory} />
           </div>
         </>
       )}
